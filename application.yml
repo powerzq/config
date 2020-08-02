@@ -1,0 +1,36 @@
+server:
+  port: 8080
+mybatis:
+  mapper-locations:
+  - classpath:mapping/*.xml
+
+spring:
+  application:
+    name: spring-service-product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+logging:
+  level:
+    cn.temp.mapper: debug
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:temp@localhost:7001/eureka
+  instance:
+    instance-id: spring-service-product
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2
+    lease-expiration-duration-in-seconds: 5
+
+info:
+  app.name: spring-service-product
+  company.name: temp
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
