@@ -2,7 +2,8 @@ server:
   port: 8080
 spring:
   profiles:
-    active: dev
+    active:
+    - dev
 mybatis:
   mapper-locations:
   - classpath:mapping/*.xml
@@ -27,7 +28,7 @@ info:
   company.name: temp
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
-
+---
 spring:
   profiles: dev
   application:
